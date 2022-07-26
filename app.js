@@ -11,19 +11,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
 //Creates connection
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Owltime13!",
-  database: "nodejsdemo",
-});
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "Owltime13!",
+//   database: "nodejsdemo",
+// });
 
-db.connect( (err) => {
-    if(err){
-        throw err;
-    }
-    console.log('MySql connected...');
-});
+// db.connect( (err) => {
+//     if(err){
+//         throw err;
+//     }
+//     console.log('MySql connected...');
+// });
 
 
 //get all user api
