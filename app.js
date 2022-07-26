@@ -34,6 +34,6 @@ app.get("/api/listAllUsers", (req, res) => {
 });
 
 
-app.listen("3002", () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("Server started on port 3002");
 });
