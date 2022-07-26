@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 
+const PORT = 3002;
 
 // apply middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -35,5 +36,5 @@ app.get("/api/listAllUsers", (req, res) => {
 
 
 app.listen(process.env.PORT || PORT, () => {
-  console.log("Server started on port 3002");
+  console.log(`Server started on port ${PORT}`);
 });
