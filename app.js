@@ -34,6 +34,13 @@ app.get("/api/listAllUsers", (req, res) => {
     });
 });
 
+app.get("/api/listAllPasswords", (req, res) => {
+  const sqlPass = "SELECT password FROM heroku_43746ee8f304c3f.web_user;";
+  db.query(sqlPass, (req, result) => {
+    res.send(result);
+});
+})
+
 
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server started on port ${PORT}`);
