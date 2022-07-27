@@ -28,8 +28,8 @@ db.connect( (err) => {
 
 //get all user api
 app.get("/api/listAllUsers", (req, res) => {
-    const sqlInsert = "SELECT * FROM heroku_43746ee8f304c3f.web_user;";
-    db.query(sqlInsert, (req, result) => {
+    const sqlGet = "SELECT * FROM heroku_43746ee8f304c3f.web_user;";
+    db.query(sqlGet, (req, result) => {
         res.send(result);
     });
 });
