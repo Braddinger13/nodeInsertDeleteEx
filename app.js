@@ -36,5 +36,5 @@ app.get("/api/listAllUsers", (req, res) => {
 
 
 app.listen(process.env.PORT || PORT, () => {
-  console.log(`Server started on port ${PORT} `);
+  console.log(`Server started on port ${PORT}`);
 });
