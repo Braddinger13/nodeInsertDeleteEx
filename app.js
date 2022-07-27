@@ -39,7 +39,7 @@ app.get("/api/listAllPasswords", (req, res) => {
   db.query(sqlPass, (req, result) => {
     res.send(result);
 });
-})
+});
 
 
 app.listen(process.env.PORT || PORT, () => {
