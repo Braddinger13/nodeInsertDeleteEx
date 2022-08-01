@@ -80,7 +80,7 @@ app.get("/api/deleteUser/:id", (req, res) => {
   db.query(sqlDelete, (err, result) => {
     if (err) throw err;
     console.log(result);
-    res.send(`User ${req.params.id} Deleted... `);
+    res.send(`User ${req.params.id} Deleted...`);
   })
 })
 
