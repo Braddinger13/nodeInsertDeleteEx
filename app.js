@@ -69,9 +69,19 @@ app.get("/api/insertUserCheck", (req, res) => {
     res.send("User Inserted")
   })
 } )
-
 app.post("/api/createUser", (req, res) => {
   const sqlCreate = ""
+})
+
+
+//Deleting Single User
+app.get("/api/deleteUser/:id", (req, res) => {
+  const sqlDelete = `DELETE FROM heroku_43746ee8f304c3f.web_user WHERE id=${req.params.id};`;
+  db.query(sqlDelete, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    res.send(`User ${req.params.id} Deleted...`);
+  })
 })
 
 
