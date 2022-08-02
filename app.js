@@ -10,8 +10,6 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-const PORT = 3305;
-
 //Creates connection
 const db = mysql.createConnection({
   host: "us-cdbr-east-06.cleardb.net",
@@ -58,8 +56,8 @@ app.get("/api/getUser/:id", (req, res) => {
 app.get("/api/insertUserCheck", (req, res) => {
 
   const newUser = {
-    email: 'insert@temple.edu',
-    password: "insertPassword"
+    email: 'insert2@temple.edu',
+    password: "insert2Password"
   }
 
   const sqlInsertUser = "INSERT INTO heroku_43746ee8f304c3f.web_user SET ?;";
@@ -84,7 +82,8 @@ app.get("/api/deleteUser/:id", (req, res) => {
   })
 })
 
+const PORT = process.env.PORT || 3001
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server started on port ${PORT} `);
 });
