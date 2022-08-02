@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 
 // apply middleware
-app.use(bodyParser.urlencoded({ extended: false })); //was true
+//app.use(bodyParser.urlencoded({ extended: false })); //was true
 app.use(bodyParser.json());
 
 app.use(cors());
@@ -66,7 +66,7 @@ app.get("/api/insertUserCheck", (req, res) => {
   db.query(sqlInsertUser, newUser, (err, result) => {
     if(err) throw err;
     console.log(result);
-    res.send("User Inserted")
+    res.send("User Inserted ")
   })
 } )
 app.post("/api/createUser", (req, res) => {
