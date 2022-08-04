@@ -3,27 +3,30 @@ const mysql = require("mysql2");
 const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
+const dotenv = require('dotenv');
+dotenv.config();
 
 // apply middleware
-//app.use(bodyParser.urlencoded({ extended: false })); //was true
-app.use(bodyParser.json());
-
 app.use(cors());
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false })); 
+
+
 //Creates connection
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: "us-cdbr-east-06.cleardb.net",
   user: "b5afa61b88c1ab",
   password: "1c788992",
   database: "heroku_43746ee8f304c3f",
 });
 
-db.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log("MySql connected...");
-});
+// db.connect((err) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log("MySql connected...");
+// });
 
 
 //get all user api
@@ -56,8 +59,8 @@ app.get("/api/getUser/:id", (req, res) => {
 app.get("/api/insertUserCheck", (req, res) => {
 
   const newUser = {
-    email: 'insert2@temple.edu',
-    password: "insert2Password"
+    email: 'insert3@temple.edu',
+    password: "insert3Password"
   }
 
   const sqlInsertUser = "INSERT INTO heroku_43746ee8f304c3f.web_user SET ?;";
@@ -67,9 +70,7 @@ app.get("/api/insertUserCheck", (req, res) => {
     res.send("User Inserted ")
   })
 } )
-app.post("/api/createUser", (req, res) => {
-  const sqlCreate = ""
-})
+
 
 
 //Deleting Single User
