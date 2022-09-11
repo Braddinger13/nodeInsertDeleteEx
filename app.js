@@ -14,19 +14,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //Creates connection
+//create pool defaults to 10 connnections. Can change by specifying connectionLimit: #
 const db = mysql.createPool({
   host: "us-cdbr-east-06.cleardb.net",
   user: "b5afa61b88c1ab",
   password: "1c788992",
   database: "heroku_43746ee8f304c3f",
 });
-
-// db.connect((err) => {
-//   if (err) {
-//     throw err;
-//   }
-//   console.log("MySql connected...");
-// });
 
 
 //get all user api
@@ -56,7 +50,7 @@ app.get("/api/getUser/:id", (req, res) => {
 
 
 //Creating single user
-app.get("/api/insertUserCheck", (req, res) => {
+app.post("/api/insertUserCheck", (req, res) => {
 
   const newUser = {
     email: 'insert3@temple.edu',
@@ -74,7 +68,7 @@ app.get("/api/insertUserCheck", (req, res) => {
 
 
 //Deleting Single User
-app.get("/api/deleteUser/:id", (req, res) => {
+app.delete("/api/deleteUser/:id", (req, res) => {
   const sqlDelete = `DELETE FROM heroku_43746ee8f304c3f.web_user WHERE id=${req.params.id};`;
   db.query(sqlDelete, (err, result) => {
     if (err) throw err;
